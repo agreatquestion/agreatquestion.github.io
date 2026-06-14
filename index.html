@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2026 AGQ Programming</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px 20px;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 900px;
+        }
+
+        h1 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .top-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .top-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+
+        .most-recent-update {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: black;
+        }
+
+        .pdf-container {
+            margin-top: 20px;
+        }
+
+        .pdf-display {
+            margin-bottom: 30px;
+        }
+
+        .pdf-display canvas {
+            display: block;
+            margin: 15px auto;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        /* STAFF VIEW */
+
+        .staff-wrapper {
+            margin-top: 20px;
+        }
+
+        .group {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .group-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .group-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .single-field {
+            font-size: 14px;
+        }
+
+        .back-button {
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            background: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+        }
+
+        #changelog {
+            max-height: 100px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #fafafa;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 25px 0;
+        }
+
+        .error-message {
+            text-align: center;
+            color: red;
+            font-size: 14px;
+        }
+
+        .search-container {
+            position: relative;
+        }
+        
+        #searchSuggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .suggestion {
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .suggestion:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>2026 AGQ Programming</h1>
+
+    <div class="top-links">
+        <a href="https://forms.gle/9t9uhYaFVY7tsnnUA" target="_blank">Request Form</a>
+        <a href="https://forms.gle/4aq7ai8XEzpiaKWv6" target="_blank">All Day Activity Form</a>
+    </div>
+
+    <div class="most-recent-update" id="mostRecentUpdate">
+        Loading most recent update...
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search staff by name...">
+        <div id="searchSuggestions"></div>
+    </div>
+
+    <div class="pdf-container" id="pdfContainer"></div>
+
+    <div class="divider"></div>
+
+    <div id="changelog">
+        Loading full changelog...
+    </div>
+</div>
+
+<script>
+
+/* -----------------------------
+   PDF DISPLAY FUNCTION
+------------------------------ */
+
+const pdfFiles = [
+    "Cabins.pdf",
+    "Time Off.pdf",
+    "Programming - AA.pdf",
+    "1-In-1-Out.pdf"//,
+    //"Post.pdf"
+];
+
+const pdfDirectory = "./programming/";
+const pdfContainer = document.getElementById("pdfContainer");
+
+let staffData = [];
+const suggestionsDiv = document.getElementById("searchSuggestions");
+
+async function loadStaffCSV() {
+    try {
+        const response = await fetch("./csv/staff.csv");
+        const csvText = await response.text();
+
+        const rows = csvText.trim().split("\n");
+
+        staffData = rows.slice(1).map(row => {
+            const cols = row.split(",");
+
+            return {
+                firstName: cols[0]?.trim() || "",
+                lastName: cols[1]?.trim() || "",
+                cabin: cols[2]?.trim() || "",
+                firstHour: cols[3]?.trim() || "",
+                secondHour: cols[4]?.trim() || "",
+                thirdHour: cols[5]?.trim() || "",
+                fourthHour: cols[6]?.trim() || ""
+            };
+        });
+
+        console.log("Staff CSV loaded:", staffData);
+
+    } catch (error) {
+        console.error("Failed to load staff CSV:", error);
+    }
+}
+
+function updateSuggestions(searchTerm) {
+
+    if (!searchTerm) {
+        suggestionsDiv.style.display = "none";
+        suggestionsDiv.innerHTML = "";
+        return;
+    }
+
+    const matches = staffData.filter(person => {
+
+        const fullName =
+            `${person.firstName} ${person.lastName}`.toLowerCase();
+
+        return fullName.includes(searchTerm.toLowerCase());
+
+    }).slice(0, 10);
+
+    if (matches.length === 0) {
+        suggestionsDiv.style.display = "none";
+        return;
+    }
+
+    suggestionsDiv.innerHTML = "";
+
+    matches.forEach(person => {
+
+        const fullName = `${person.firstName} ${person.lastName}`;
+
+        const div = document.createElement("div");
+        div.className = "suggestion";
+        div.textContent = `${fullName} (Cabin ${person.cabin})`;
+
+        div.addEventListener("click", () => {
+
+            document.getElementById("searchInput").value = fullName;
+
+            suggestionsDiv.style.display = "none";
+
+            showStaffView(person);
+        });
+
+        suggestionsDiv.appendChild(div);
+    });
+
+    suggestionsDiv.style.display = "block";
+}
+
+function loadPDFs() {
+    pdfContainer.innerHTML = "";
+    pdfFiles.forEach(file => displayPDF(file));
+}
+
+function displayPDF(fileName) {
+    const displayDiv = document.createElement("div");
+    displayDiv.className = "pdf-display";
+
+    const cacheBuster = "?t=" + new Date().getTime();
+    const pdfPath = pdfDirectory + encodeURIComponent(fileName) + cacheBuster;
+
+    const loadingTask = pdfjsLib.getDocument(pdfPath);
+
+    loadingTask.promise.then(pdf => {
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            pdf.getPage(pageNum).then(page => {
+                const viewport = page.getViewport({ scale: 1.5 });
+                const canvas = document.createElement("canvas");
+                const context = canvas.getContext("2d");
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                displayDiv.appendChild(canvas);
+                page.render({ canvasContext: context, viewport: viewport });
+            });
+        }
+    });
+
+    pdfContainer.appendChild(displayDiv);
+}
+
+loadPDFs();
+loadStaffCSV();
+document.getElementById("searchInput").addEventListener("input", function() {
+    updateSuggestions(this.value.trim());
+});
+
+/* -----------------------------
+   SEARCH BEHAVIOR
+------------------------------ */
+
+document.getElementById("searchInput").addEventListener("keypress", function(event) {
+
+    if (event.key !== "Enter") return;
+
+    event.preventDefault();
+
+    const searchTerm = document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const staff = staffData.find(person => {
+
+        const fullName =
+            `${person.firstName} ${person.lastName}`.toLowerCase();
+    
+        return fullName.includes(searchTerm);
+    
+    });
+
+    showStaffView(staff);
+});
+
+function showStaffView(staff) {
+        if (!staff) {
+        pdfContainer.innerHTML = `
+            <div class="error-message">
+                Staff member not found.
+            </div>
+        `;
+        return;
+    }
+    
+    pdfContainer.innerHTML = "";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "staff-wrapper";
+
+    const backBtn = document.createElement("button");
+    backBtn.className = "back-button";
+    backBtn.innerText = "Back to Programming";
+    backBtn.addEventListener("click", function() {
+        document.getElementById("searchInput").value = "";
+        loadPDFs();
+    });
+
+    wrapper.appendChild(backBtn);
+
+    const content = document.createElement("div");
+    content.innerHTML = `
+        <div class="group">
+            <div class="group-title">Staff Info</div>
+            <div class="group-grid">
+                <div><strong>Name:</strong> ${staff.firstName} ${staff.lastName}</div>
+                <div><strong>Cabin:</strong> ${staff.cabin}</div>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="group-title">Activity Area Hours</div>
+            <div class="group-grid">
+                <div><strong>1st Hour:</strong> ${staff.firstHour}</div>
+                <div><strong>3rd Hour:</strong> ${staff.thirdHour}</div>
+                <div><strong>2nd Hour:</strong> ${staff.secondHour}</div>
+                <div><strong>4th Hour:</strong> ${staff.fourthHour}</div>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="group-title">Time Off (WIP)</div>
+            <div class="group-grid">
+                <div><strong>Toof:</strong> Placeholder</div>
+                <div><strong>Noff:</strong> Placeholder</div>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="group-title">Post Assignments (WIP)</div>
+            <div class="single-field"><strong>Post:</strong> Placeholder</div>
+        </div>
+
+        <div class="group">
+            <div class="group-title">Days Out (WIP)</div>
+            <div class="single-field"><strong>Days Out:</strong> Placeholder</div>
+        </div>
+
+        <div class="group">
+            <div class="group-title">Notes (WIP)</div>
+            <div class="single-field"><strong>Notes:</strong> Placeholder</div>
+        </div>
+    `;
+
+    wrapper.appendChild(content);
+    pdfContainer.appendChild(wrapper);
+}
+
+/* -----------------------------
+   GITHUB CHANGELOG (UNCHANGED)
+------------------------------ */
+
+const owner = "agreatquestion";
+const repo = "agreatquestion.github.io";
+
+document.addEventListener("click", function(event) {
+
+    if (!event.target.closest(".search-container")) {
+        suggestionsDiv.style.display = "none";
+    }
+
+});
+
+async function fetchChangelogAndLastUpdate() {
+    try {
+        const response = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/commits?sha=main&per_page=100`
+        );
+        const data = await response.json();
+
+        const validCommits = data.filter(commitData => {
+            const message = commitData.commit.message;
+            return !message.startsWith("Merge branch") && !message.startsWith("[IGNORE]") && !message.startsWith("Initial commit");
+        });
+
+        if (validCommits.length > 0) {
+            const lastCommit = validCommits[0].commit;
+            const lastDate = new Date(lastCommit.author.date);
+            document.getElementById("mostRecentUpdate").innerHTML =
+                `<strong>Most recent update:</strong><br>${lastDate.toLocaleDateString()} – ${lastDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} | ${lastCommit.message.split('\n')[0].trim()}`;
+        }
+
+        const changelogDiv = document.getElementById("changelog");
+        changelogDiv.innerHTML = "";
+
+        validCommits.reverse().forEach(commitData => {
+            const commit = commitData.commit;
+            const commitDate = new Date(commit.author.date);
+            const div = document.createElement("div");
+            div.innerText = `${commitDate.toLocaleDateString()} ${commitDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}: ${commit.message.split('\n')[0].trim()}`;
+            changelogDiv.appendChild(div);
+        });
+
+        changelogDiv.scrollTop = changelogDiv.scrollHeight;
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+fetchChangelogAndLastUpdate();
+
+</script>
+
+</body>
+</html>
