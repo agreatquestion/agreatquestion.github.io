@@ -221,9 +221,9 @@
 const pdfFiles = [
     "Cabins.pdf",
     "Time Off.pdf",
-    "Programming - AA.pdf",
-    "1-In-1-Out.pdf"//,
-    //"Post.pdf"
+    "AA.pdf",
+    "1-In-1-Out.pdf",
+    "Post.pdf"
 ];
 
 const pdfDirectory = "./programming/";
@@ -252,7 +252,6 @@ async function loadStaffCSV() {
                 fourthHour: cols[6]?.trim() || "",
                 toof: cols[7]?.trim() || "",
                 noff: cols[8]?.trim() || "",
-            
                 sunday_io: cols[9]?.trim() || "",
                 monday_io: cols[10]?.trim() || "",
                 tuesday_io: cols[11]?.trim() || "",
@@ -260,7 +259,32 @@ async function loadStaffCSV() {
                 thursday_io: cols[13]?.trim() || "",
                 friday_io: cols[14]?.trim() || "",
                 saturday_io: cols[15]?.trim() || "",
-
+                sunday_post: cols[16]?.trim() || "",
+                monday_post: cols[17]?.trim() || "",
+                tuesday_post: cols[18]?.trim() || "",
+                wednesday_post: cols[19]?.trim() || "",
+                thursday_post: cols[20]?.trim() || "",
+                friday_post: cols[21]?.trim() || "",
+                saturday_post: cols[22]?.trim() || "",
+                dock: cols[23]?.trim() || "",
+                buddy_board: cols[24]?.trim() || "",
+                bathhouse: cols[25]?.trim() || "",
+                dhall_rowe: cols[26]?.trim() || "",
+                free_time_break_sun: cols[27]?.trim() || "",
+                free_time_break_mo: cols[28]?.trim() || "",
+                free_time_break_tue: cols[29]?.trim() || "",
+                free_time_break_wed: cols[30]?.trim() || "",
+                free_time_break_thur: cols[31]?.trim() || "",
+                free_time_break_fri: cols[32]?.trim() || "",
+                free_time_break_sat: cols[33]?.trim() || "",
+                free_swim_break_sun: cols[34]?.trim() || "",
+                free_swim_break_mo: cols[35]?.trim() || "",
+                free_swim_break_tue: cols[36]?.trim() || "",
+                free_swim_break_wed: cols[37]?.trim() || "",
+                free_swim_break_thur: cols[38]?.trim() || "",
+                free_swim_break_fri: cols[39]?.trim() || "",
+                free_swim_break_sat: cols[40]?.trim() || "",
+                sign_in: cols[41]?.trim() || "",
                 notes: cols[42]?.trim() || ""
             };
         });
@@ -384,6 +408,39 @@ document.getElementById("searchInput").addEventListener("keypress", function(eve
     showStaffView(staff);
 });
 
+function decodePost(value) {
+    switch ((value || "").toUpperCase()) {
+        case "R": return "Rowe";
+        case "B": return "Biggie";
+        case "N": return "Northside Circle";
+        case "S": return "Southside Circle";
+        case "":
+        case null:
+        case undefined:
+            return "-";
+        default:
+            return value; // fallback for unknown codes
+    }
+}
+
+function collectDays(prefix, staff) {
+    const days = [
+        { key: "sun", label: "Sunday" },
+        { key: "mo", label: "Monday" },
+        { key: "tue", label: "Tuesday" },
+        { key: "wed", label: "Wednesday" },
+        { key: "thur", label: "Thursday" },
+        { key: "fri", label: "Friday" },
+        { key: "sat", label: "Saturday" }
+    ];
+
+    const result = days
+        .filter(d => staff[`${prefix}_${d.key}`] === "1")
+        .map(d => d.label);
+
+    return result.length ? result.join(", ") : "-";
+}
+
 function showStaffView(staff) {
         if (!staff) {
         pdfContainer.innerHTML = `
@@ -465,8 +522,25 @@ function showStaffView(staff) {
         </div>
 
         <div class="group">
-            <div class="group-title">Days Out (WIP)</div>
-            <div class="single-field"><strong>Days Out:</strong> Placeholder</div>
+            <div class="group-title">Post</div>
+        
+            <div class="group-grid">
+                <div><strong>Post:</strong> ${decodePost(staff.sunday_post || staff.monday_post || staff.tuesday_post || staff.wednesday_post || staff.thursday_post || staff.friday_post || staff.saturday_post || "")}</div>
+
+                <div><strong>Sign-In:</strong> ${staff.sign_in || "-"}</div>
+                
+                <div><strong>Dock:</strong> ${staff.dock || "-"}</div>
+        
+                <div><strong>Buddy Board:</strong> ${staff.buddy_board || "-"}</div>
+
+                <div><strong>Bathhouse:</strong> ${staff.bathhouse || "-"}</div>
+            
+                <div><strong>D-Hall & Rowe:</strong> ${staff.dhall_rowe || "-"}</div>
+
+                <div><strong>Free Swim Break:</strong> ${collectDays("free_swim_break", staff)}</div>
+
+                <div><strong>Free Time Break:</strong> ${collectDays("free_time_break", staff)}</div>
+            </div>
         </div>
 
         <div class="group">
