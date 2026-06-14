@@ -249,7 +249,17 @@ async function loadStaffCSV() {
                 firstHour: cols[3]?.trim() || "",
                 secondHour: cols[4]?.trim() || "",
                 thirdHour: cols[5]?.trim() || "",
-                fourthHour: cols[6]?.trim() || ""
+                fourthHour: cols[6]?.trim() || "",
+                toof: cols[7]?.trim() || "",
+                noff: cols[8]?.trim() || "",
+            
+                sunday_io: cols[9]?.trim() || "",
+                monday_io: cols[10]?.trim() || "",
+                tuesday_io: cols[11]?.trim() || "",
+                wednesday_io: cols[12]?.trim() || "",
+                thursday_io: cols[13]?.trim() || "",
+                friday_io: cols[14]?.trim() || "",
+                saturday_io: cols[15]?.trim() || ""
             };
         });
 
@@ -418,16 +428,38 @@ function showStaffView(staff) {
         </div>
 
         <div class="group">
-            <div class="group-title">Time Off (WIP)</div>
+            <div class="group-title">Time Off</div>
             <div class="group-grid">
-                <div><strong>Toof:</strong> Placeholder</div>
-                <div><strong>Noff:</strong> Placeholder</div>
+                <div><strong>Toof:</strong> ${staff.toof}</div>
+                <div><strong>Noff:</strong> ${staff.noff}</div>
             </div>
         </div>
 
         <div class="group">
-            <div class="group-title">Post Assignments (WIP)</div>
-            <div class="single-field"><strong>Post:</strong> Placeholder</div>
+            <div class="group-title">1-In-1-Out</div>
+        
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse: collapse; font-size:14px; text-align:center;">
+                    <tr>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Sun</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Mon</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Tue</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Wed</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Thu</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Fri</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Sat</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px;">${staff.sunday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.monday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.tuesday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.wednesday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.thursday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.friday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.saturday_io || "-"}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <div class="group">
