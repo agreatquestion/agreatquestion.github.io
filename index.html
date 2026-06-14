@@ -259,7 +259,9 @@ async function loadStaffCSV() {
                 wednesday_io: cols[12]?.trim() || "",
                 thursday_io: cols[13]?.trim() || "",
                 friday_io: cols[14]?.trim() || "",
-                saturday_io: cols[15]?.trim() || ""
+                saturday_io: cols[15]?.trim() || "",
+
+                notes: cols[43]?.trim() || ""
             };
         });
 
@@ -468,8 +470,10 @@ function showStaffView(staff) {
         </div>
 
         <div class="group">
-            <div class="group-title">Notes (WIP)</div>
-            <div class="single-field"><strong>Notes:</strong> Placeholder</div>
+            <div class="group-title">Notes</div>
+            <div class="single-field">
+                <strong>Notes:</strong> ${staff.notes?.trim() ? staff.notes : "None"}
+            </div>
         </div>
     `;
 
