@@ -269,6 +269,9 @@ async function loadStaffCSV() {
                 friday_post: cols[21]?.trim() || "",
                 saturday_post: cols[22]?.trim() || "",
 
+                dock: cols[23]?.trim() || "",
+                buddy_board: cols[24]?.trim() || "",
+
                 notes: cols[42]?.trim() || ""
             };
         });
@@ -461,7 +464,19 @@ function showStaffView(staff) {
         </div>
 
         <div class="group">
-            <div class="group-title">1-In-1-Out</div>
+            <div class="group-title">Post</div>
+        
+            <div class="group-grid">
+                <div><strong>Post:</strong> ${staff.sunday_post || staff.monday_post || staff.tuesday_post || staff.wednesday_post || staff.thursday_post || staff.friday_post || staff.saturday_post || "None"}</div>
+        
+                <div><strong>Dock:</strong> ${staff.dock || "None"}</div>
+        
+                <div><strong>Buddy Board:</strong> ${staff.buddy_board || "None"}</div>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="group-title">Post</div>
         
             <div style="overflow-x:auto;">
                 <table style="width:100%; border-collapse: collapse; font-size:14px; text-align:center;">
@@ -474,30 +489,17 @@ function showStaffView(staff) {
                         <th style="border-bottom:1px solid #ddd; padding:8px;">Fri</th>
                         <th style="border-bottom:1px solid #ddd; padding:8px;">Sat</th>
                     </tr>
+        
                     <tr>
-                        <td style="padding:8px;">${staff.sunday_io || "-"}</td>
-                        <td style="padding:8px;">${staff.monday_io || "-"}</td>
-                        <td style="padding:8px;">${staff.tuesday_io || "-"}</td>
-                        <td style="padding:8px;">${staff.wednesday_io || "-"}</td>
-                        <td style="padding:8px;">${staff.thursday_io || "-"}</td>
-                        <td style="padding:8px;">${staff.friday_io || "-"}</td>
-                        <td style="padding:8px;">${staff.saturday_io || "-"}</td>
+                        <td style="padding:8px;">${decodePost(staff.sunday_post)}</td>
+                        <td style="padding:8px;">${decodePost(staff.monday_post)}</td>
+                        <td style="padding:8px;">${decodePost(staff.tuesday_post)}</td>
+                        <td style="padding:8px;">${decodePost(staff.wednesday_post)}</td>
+                        <td style="padding:8px;">${decodePost(staff.thursday_post)}</td>
+                        <td style="padding:8px;">${decodePost(staff.friday_post)}</td>
+                        <td style="padding:8px;">${decodePost(staff.saturday_post)}</td>
                     </tr>
                 </table>
-            </div>
-        </div>
-
-        <div class="group">
-            <div class="group-title">Post</div>
-        
-            <div class="group-grid">
-                <div><strong>Sun:</strong> ${decodePost(staff.sunday_post)}</div>
-                <div><strong>Mon:</strong> ${decodePost(staff.monday_post)}</div>
-                <div><strong>Tue:</strong> ${decodePost(staff.tuesday_post)}</div>
-                <div><strong>Wed:</strong> ${decodePost(staff.wednesday_post)}</div>
-                <div><strong>Thu:</strong> ${decodePost(staff.thursday_post)}</div>
-                <div><strong>Fri:</strong> ${decodePost(staff.friday_post)}</div>
-                <div><strong>Sat:</strong> ${decodePost(staff.saturday_post)}</div>
             </div>
         </div>
 
