@@ -249,7 +249,9 @@ async function loadStaffCSV() {
                 firstHour: cols[3]?.trim() || "",
                 secondHour: cols[4]?.trim() || "",
                 thirdHour: cols[5]?.trim() || "",
-                fourthHour: cols[6]?.trim() || ""
+                fourthHour: cols[6]?.trim() || "",
+                toof: cols[7]?.trim() || "",
+                noff: cols[8]?.trim() || ""
             };
         });
 
@@ -418,10 +420,10 @@ function showStaffView(staff) {
         </div>
 
         <div class="group">
-            <div class="group-title">Time Off (WIP)</div>
+            <div class="group-title">Time Off</div>
             <div class="group-grid">
-                <div><strong>Toof:</strong> Placeholder</div>
-                <div><strong>Noff:</strong> Placeholder</div>
+                <div><strong>Toof:</strong> ${staff.toof}</div>
+                <div><strong>Noff:</strong> ${staff.noff}</div>
             </div>
         </div>
 
