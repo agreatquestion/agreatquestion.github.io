@@ -443,7 +443,7 @@ function collectDays(prefix, staff) {
     ];
 
     const result = days
-        .filter(d => staff[`${prefix}_${d.key}`])
+        .filter(d => staff[`${prefix}_${d.key}`] === "1")
         .map(d => d.label);
 
     return result.length ? result.join(", ") : "-";
