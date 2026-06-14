@@ -437,14 +437,28 @@ function showStaffView(staff) {
 
         <div class="group">
             <div class="group-title">1-In-1-Out</div>
-            <div class="group-grid">
-                <div><strong>Sun:</strong> ${staff.sunday_io}</div>
-                <div><strong>Mon:</strong> ${staff.monday_io}</div>
-                <div><strong>Tue:</strong> ${staff.tuesday_io}</div>
-                <div><strong>Wed:</strong> ${staff.wednesday_io}</div>
-                <div><strong>Thu:</strong> ${staff.thursday_io}</div>
-                <div><strong>Fri:</strong> ${staff.friday_io}</div>
-                <div><strong>Sat:</strong> ${staff.saturday_io}</div>
+        
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse: collapse; font-size:14px; text-align:center;">
+                    <tr>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Sun</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Mon</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Tue</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Wed</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Thu</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Fri</th>
+                        <th style="border-bottom:1px solid #ddd; padding:8px;">Sat</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px;">${staff.sunday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.monday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.tuesday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.wednesday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.thursday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.friday_io || "-"}</td>
+                        <td style="padding:8px;">${staff.saturday_io || "-"}</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
