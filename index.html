@@ -242,7 +242,7 @@ async function loadStaffCSV() {
         staffData = rows.slice(1).map(row => {
             const cols = row.split(",");
 
-            return {
+            return { // Columns
                 firstName: cols[0]?.trim() || "",
                 lastName: cols[1]?.trim() || "",
                 cabin: cols[2]?.trim() || "",
