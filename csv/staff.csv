@@ -6,7 +6,7 @@ Brooke,Jones,10,A&C,News/Lib,Planning,Planning,Wednesday,None,N/A,Out,In,N/A,In,
 Fina,Kutcher,3,Kitchen,Kitchen,A&C,Planning,Thursday,None,N/A,In,In,N/A,Out,N/A,N/A,,,,,,,,,,,,0,1,1,0,0,0,0,0,0,0,0,0,0,0,,
 Abbie,Moraschinelli,1,Drama & Music and Movement,Drama & Music and Movement,Planning,Drama & Music and Movement,Thursday,None,N/A,In,In,N/A,Out,N/A,N/A,,,,,,,,,,Wednesday,,0,0,0,0,0,0,0,0,1,1,0,0,0,0,,
 Kendra,Muenz,6,Woodshop,Woodshop,Planning,Woodshop,Thursday,None,N/A,In,Out,N/A,Out,N/A,N/A,,,S,,,,,,,,,0,1,0,0,0,0,0,0,0,0,0,0,0,0,,
-Helena,Myler,14,H20 Flex,H20 Flex,H20 Flex,H20 Flex,STO,None,N/A,In,Out,N/A,In,N/A,N/A,,,,,,,,,,,Wednesday,0,1,0,0,0,0,0,0,0,0,0,1,0,0,,Friday 6/19 4pm-Sat 6/18 4pm
+Helena,Myler,14,H20 Flex,H20 Flex,H20 Flex,H20 Flex,STO (Check Notes),None,N/A,In,Out,N/A,In,N/A,N/A,,,,,,,,,,,Wednesday,0,1,0,0,0,0,0,0,0,0,0,1,0,0,,Special Time Off Friday 6/19 4pm-Sat 6/18 4pm
 Molly,Page,7,Kitchen,Kitchen,Planning,Archery,Tuesday,None,N/A,In,Out,N/A,In,N/A,N/A,,,,,,,,,,Wednesday,,0,1,0,0,1,0,0,0,0,0,0,0,0,0,,
 Elsa,Pasquariello,15,Swim,Planning,Canoe,Swim,Thursday,None,N/A,In,Out,N/A,Out,N/A,N/A,,,,,,,,Thursday, ,Tuesday,,0,0,0,0,0,0,0,0,1,0,0,0,0,0,,
 Mya,Weiss,9,Landsports,FUNK,Planning,A&C,Monday,None,N/A,Out,In,N/A,Out,N/A,N/A,,,,,S,,,,,,,0,0,1,0,0,0,0,0,0,0,0,0,0,0,,
@@ -22,7 +22,7 @@ Caitlyn,Kruder,12,Barn,Barn,Barn,Barn,Wednesday,None,N/A,In,Out,N/A,In,N/A,N/A,,
 Eloise,MacDougald,2,Canoe,Swim,Sail,Sail,Tuesday,None,N/A,In,Out,N/A,In,N/A,N/A,,,,,,,,Friday, ,,,0,0,0,0,0,0,0,0,1,0,0,1,0,0,,
 Cass,McNalley,9,A&C,A&C,A&C,A&C,Wednesday,None,N/A,In,Out,N/A,In,N/A,N/A,,,B,,,,,,,,Monday,0,0,0,0,1,0,0,0,1,0,0,0,0,0,,
 Julia,Rode,2,Swim,Swim,Sail,Sail,Thursday,None,N/A,Out,In,N/A,Out,N/A,N/A,,,,,,,,Thursday, ,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,,
-Sloan,Shackelford,4,Office,Office,Office,Office,STO,None,N/A,Out,In,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,1,0,1,0,0,,Friday 6/19 4pm-Sat 6/18 4pm
+Sloan,Shackelford,4,Office,Office,Office,Office,STO (Check Notes),None,N/A,Out,In,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,1,0,1,0,0,,Special Time Off Friday 6/19 4pm-Sat 6/18 4pm
 Liz,Stephens,13,Wall,Wall,Star,News/Lib,Wednesday,None,N/A,In,In,N/A,In,N/A,N/A,,,,,,B,,,,,,0,0,0,0,1,0,0,0,1,1,0,0,0,0,,
 Julianna,Bailey,2,Swim,Swim,Swim,Swim,Monday,None,N/A,Out,Out,N/A,Out,N/A,N/A,,,,,,,,Wednesday, ,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,
 Vivien,Ceccacci,10,FUNK,FUNK,FUNK,FUNK,Tuesday,None,N/A,In,Out,N/A,Out,N/A,N/A,,,,,,,,,,,Friday,0,0,0,0,0,0,0,0,1,0,0,0,0,0,,
@@ -62,7 +62,7 @@ Paul,Kollman,Lodge,N/A,N/A,N/A,N/A,Monday,None,N/A,N/A,In,N/A,N/A,N/A,N/A,,,,,,,
 Brent,Ceccacci,Lodge,N/A,N/A,N/A,N/A,Monday,None,N/A,N/A,In,N/A,N/A,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Thursday,
 Santi,Fiori,Lodge,N/A,N/A,N/A,N/A,Tuesday,None,N/A,In,N/A,N/A,N/A,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,
 Lenny,Lorenz,Lodge,N/A,N/A,N/A,N/A,Thursday,None,N/A,N/A,In,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Monday,
-Cate,Dombrowski,Lodge,N/A,N/A,N/A,N/A,STO,None,N/A,N/A,N/A,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Tuesday,Fri 6/19 AM-Sun In Day
+Cate,Dombrowski,Lodge,N/A,N/A,N/A,N/A,STO (Check Notes),None,N/A,N/A,N/A,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Tuesday,Special Time Off Fri 6/19 AM-Sun In Day
 KC,Muzik,DC,N/A,N/A,N/A,N/A,Tuesday,None,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,8am-8am toof
 Murphy,Hammer,DC,N/A,N/A,N/A,N/A,Wednesday,None,N/A,N/A,N/A,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,8am-8am toof
 Krystal,Louchart,DC,Kitchen,Kitchen,Kitchen,Kitchen,N/A,None,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,
