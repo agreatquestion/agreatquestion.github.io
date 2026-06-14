@@ -242,7 +242,7 @@ async function loadStaffCSV() {
         staffData = rows.slice(1).map(row => {
             const cols = row.split(",");
 
-            return {
+            rreturn {
                 firstName: cols[0]?.trim() || "",
                 lastName: cols[1]?.trim() || "",
                 cabin: cols[2]?.trim() || "",
@@ -251,7 +251,15 @@ async function loadStaffCSV() {
                 thirdHour: cols[5]?.trim() || "",
                 fourthHour: cols[6]?.trim() || "",
                 toof: cols[7]?.trim() || "",
-                noff: cols[8]?.trim() || ""
+                noff: cols[8]?.trim() || "",
+            
+                sunday_io: cols[9]?.trim() || "",
+                monday_io: cols[10]?.trim() || "",
+                tuesday_io: cols[11]?.trim() || "",
+                wednesday_io: cols[12]?.trim() || "",
+                thursday_io: cols[13]?.trim() || "",
+                friday_io: cols[14]?.trim() || "",
+                saturday_io: cols[15]?.trim() || ""
             };
         });
 
@@ -428,8 +436,16 @@ function showStaffView(staff) {
         </div>
 
         <div class="group">
-            <div class="group-title">Post Assignments (WIP)</div>
-            <div class="single-field"><strong>Post:</strong> Placeholder</div>
+            <div class="group-title">1-In-1-Out</div>
+            <div class="group-grid">
+                <div><strong>Sun:</strong> ${staff.sunday_io}</div>
+                <div><strong>Mon:</strong> ${staff.monday_io}</div>
+                <div><strong>Tue:</strong> ${staff.tuesday_io}</div>
+                <div><strong>Wed:</strong> ${staff.wednesday_io}</div>
+                <div><strong>Thu:</strong> ${staff.thursday_io}</div>
+                <div><strong>Fri:</strong> ${staff.friday_io}</div>
+                <div><strong>Sat:</strong> ${staff.saturday_io}</div>
+            </div>
         </div>
 
         <div class="group">
