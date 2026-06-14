@@ -261,6 +261,14 @@ async function loadStaffCSV() {
                 friday_io: cols[14]?.trim() || "",
                 saturday_io: cols[15]?.trim() || "",
 
+                sunday_post: cols[16]?.trim() || "",
+                monday_post: cols[17]?.trim() || "",
+                tuesday_post: cols[18]?.trim() || "",
+                wednesday_post: cols[19]?.trim() || "",
+                thursday_post: cols[20]?.trim() || "",
+                friday_post: cols[21]?.trim() || "",
+                saturday_post: cols[22]?.trim() || "",
+
                 notes: cols[42]?.trim() || ""
             };
         });
@@ -384,6 +392,21 @@ document.getElementById("searchInput").addEventListener("keypress", function(eve
     showStaffView(staff);
 });
 
+function decodePost(value) {
+    switch ((value || "").toUpperCase()) {
+        case "R": return "Rowe";
+        case "B": return "Biggie";
+        case "N": return "Northside Circle";
+        case "S": return "Southside Circle";
+        case "":
+        case null:
+        case undefined:
+            return "-";
+        default:
+            return value; // fallback for unknown codes
+    }
+}
+
 function showStaffView(staff) {
         if (!staff) {
         pdfContainer.innerHTML = `
@@ -465,8 +488,17 @@ function showStaffView(staff) {
         </div>
 
         <div class="group">
-            <div class="group-title">Days Out (WIP)</div>
-            <div class="single-field"><strong>Days Out:</strong> Placeholder</div>
+            <div class="group-title">Post</div>
+        
+            <div class="group-grid">
+                <div><strong>Sun:</strong> ${decodePost(staff.sunday_post)}</div>
+                <div><strong>Mon:</strong> ${decodePost(staff.monday_post)}</div>
+                <div><strong>Tue:</strong> ${decodePost(staff.tuesday_post)}</div>
+                <div><strong>Wed:</strong> ${decodePost(staff.wednesday_post)}</div>
+                <div><strong>Thu:</strong> ${decodePost(staff.thursday_post)}</div>
+                <div><strong>Fri:</strong> ${decodePost(staff.friday_post)}</div>
+                <div><strong>Sat:</strong> ${decodePost(staff.saturday_post)}</div>
+            </div>
         </div>
 
         <div class="group">
