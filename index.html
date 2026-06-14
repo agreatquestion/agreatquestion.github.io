@@ -272,6 +272,11 @@ async function loadStaffCSV() {
                 dock: cols[23]?.trim() || "",
                 buddy_board: cols[24]?.trim() || "",
 
+                bathhouse: cols[25]?.trim() || "",
+                dhall_rowe: cols[26]?.trim() || "",
+
+                sign_in: cols[42]?.trim() || "",
+
                 notes: cols[42]?.trim() || ""
             };
         });
@@ -496,9 +501,15 @@ function showStaffView(staff) {
             <div class="group-grid">
                 <div><strong>Post:</strong> ${decodePost(staff.sunday_post || staff.monday_post || staff.tuesday_post || staff.wednesday_post || staff.thursday_post || staff.friday_post || staff.saturday_post || "")}</div>
                 
-                <div><strong>Dock:</strong> ${staff.dock || "None"}</div>
+                <div><strong>Dock:</strong> ${staff.dock || "-"}</div>
         
-                <div><strong>Buddy Board:</strong> ${staff.buddy_board || "None"}</div>
+                <div><strong>Buddy Board:</strong> ${staff.buddy_board || "-"}</div>
+
+                <div><strong>Bathhouse:</strong> ${staff.bathhouse || "-"}</div>
+            
+                <div><strong>D-Hall & Rowe:</strong> ${staff.dhall_rowe || "-"}</div>
+
+                <div><strong>Sign-In:</strong> ${staff.sign_in || "-"}</div>
             </div>
         </div>
 
