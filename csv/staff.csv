@@ -9,7 +9,7 @@ Molly,Page,7,Kitchen,Kitchen,Planning,C&G,Tuesday,-,N/A,In,Out,N/A,In,N/A,N/A,,,
 Mya,Weiss,12,Planning,Planning,Archery,FUNK,Wednesday,-,N/A,Out,In,N/A,In,N/A,N/A,,,,,,B,,,,Tuesday,,0,0,0,0,1,0,0,0,0,1,0,0,0,0,,
 Gabriel,Weintraub,YC,Barn,Barn,Barn,Barn,Thursday,-,N/A,Out,Out,N/A,Out,N/A,N/A,,,,,,,,,,Wednesday,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,
 Lydia,Straszewski,4,C&G,Swim,Swim,Canoe,Tuesday,-,N/A,In,Out,N/A,Out,N/A,N/A,,,,,N,,,,,,,0,1,0,0,0,0,0,0,0,0,0,0,0,0,,
-Mac,Pillote,1,Barn,Barn,Sail,Sail,Wednesday,-,N/A,Out,In,N/A,Out,N/A,N/A,,,,,,,,,,,Friday,0,0,0,0,0,0,0,0,0,1,0,0,0,0,,
+Mac,Pillote,1,Barn,Barn,Sail,Sail,STO (Check Notes),-,N/A,Out,In,N/A,Out,N/A,N/A,,,,,,,,,,,Friday,0,0,0,0,0,0,0,0,0,1,0,0,0,0,,Special Time Off Sat 8/1 2pm-Tues 8/4 4pm
 Lily,Brenner,9,News/Lib,News/Lib,News/Lib,News/Lib,Thursday,-,N/A,In,Out,N/A,Out,N/A,N/A,,,,,,,, ,Thursday,,,0,0,0,0,0,0,0,0,1,0,0,0,0,0,,
 Fynn,Boldenow,18,Archery,Archery,Archery,Archery,Wednesday,-,N/A,In,In,N/A,In,N/A,N/A,,,,,,S,,Tuesday, ,Monday,,0,1,1,0,1,0,0,0,0,0,0,0,0,0,,
 Caitlyn,Kruder,10,Barn,Barn,Barn,Barn,Monday,-,N/A,Out,Out,N/A,In,N/A,N/A,,,,,,,,,,Friday,,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,
@@ -24,7 +24,7 @@ Cece,Miller,8,Swim,Canoe,Canoe,Swim,Tuesday,-,N/A,In,Out,N/A,In,N/A,N/A,,,,,,,,M
 Heather,Shriberg,8,Canoe,Canoe,Canoe,Canoe,Wednesday,-,N/A,Out,In,N/A,Out,N/A,N/A,,,,,,,,Tuesday, ,,Tuesday,0,0,1,0,0,0,0,0,0,0,0,0,0,0,,
 Marcus,Franklin,14,C&G,Archery,Planning,Wood,Thursday,-,N/A,Out,Out,N/A,Out,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,
 Will,MacQueen,22,Kitchen,Kitchen,Kitchen,Kitchen,Monday,-,N/A,Out,Out,N/A,In,N/A,N/A,,,,,,,,,,,Wednesday,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,
-Jackson,Ritchie,16,OST MT,OST MT,Archery,C&G,STO (Check Notes),-,N/A,In,Out,N/A,In,N/A,N/A,,,,,,R,,,,,Thursday,0,0,0,0,1,0,0,0,1,0,0,0,0,0,,Special Time Off Mon 8/3 2pm-Wed 8/5 2pm
+Jackson,Ritchie,16,OST MT,OST MT,Archery,C&G,STO (Check Notes),-,N/A,Out,Out,N/A,In,N/A,N/A,,,,,,R,,,,,Thursday,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,Special Time Off Mon 8/3 2pm-Wed 8/5 2pm
 Micah,Winchell,14,OST MT,OST MT,News/Lib,Landsports,Wednesday,-,N/A,Out,Out,N/A,Out,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,
 Eli,Woltmann-Lewis,21,Wall,Wall,Wall,Wall,Thursday,-,N/A,In,Out,N/A,Out,N/A,N/A,,,S,,,,,,,Wednesday,,0,1,0,0,0,0,0,0,0,0,0,0,0,0,,
 Asad,Bukhari,17,A&C,Archery,Kitchen,Kitchen,Thursday,-,N/A,Out,In,N/A,Out,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,,
@@ -32,7 +32,7 @@ Lincoln,Cooke,20,OST MT,OST MT,OST MT,OST MT,Wednesday,-,N/A,Out,In,N/A,In,N/A,N
 Allen,Hoover,17,Wood,Wood,Wood,Wood,Tuesday,-,N/A,In,Out,N/A,In,N/A,N/A,,,,,,,, ,Friday,,Tuesday,0,0,0,0,0,0,0,0,1,0,0,1,0,0,,
 Sekou,Kimmons,20,Landsports,Landsports,Landsports,Landsports,Tuesday,-,N/A,In,Out,N/A,Out,N/A,N/A,,,,,,,,,,,,0,1,0,0,0,0,0,0,0,0,0,0,0,0,,
 Sam,Sambe,19,Archery,C&G,Kitchen,Kitchen,Tuesday,-,N/A,In,Out,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,1,0,0,1,0,0,,
-Cal,Williams,16,Planning,A&C,H2O Ski,H2O Ski,Thursday,-,N/A,Out,In,N/A,Out,N/A,N/A,,S,,,,,,,,,,0,0,0,0,0,0,0,0,0,1,0,0,0,0,,
+Cal,Williams,16,Planning,A&C,H2O Ski,H2O Ski,Thursday,-,N/A,In,In,N/A,Out,N/A,N/A,,S,,,,,,,,,,0,0,0,0,0,0,0,0,1,1,0,0,0,0,,
 Noah,Resendez,YC,Planning,Camper Board,OST MT,OST MT,Wednesday,-,N/A,In,In,N/A,Out,N/A,N/A,,,,,,,,,,,Friday,0,1,1,0,0,0,0,0,0,0,0,0,0,0,,
 Adriano,Leona,21,FUNK,News/Lib,A&C,Archery,Tuesday,-,N/A,Out,Out,N/A,In,N/A,N/A,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,1,0,0,,
 Max,Baker,18,OST MT,OST MT,C&G,Landsports,Tuesday,-,N/A,Out,Out,N/A,Out,N/A,N/A,,,,S,,,,,,Tuesday,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,
